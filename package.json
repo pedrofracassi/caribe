@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/pedrofracassi/caribe/issues"
   },
-  "homepage": "https://github.com/pedrofracassi/caribe#readme"
+  "homepage": "https://github.com/pedrofracassi/caribe#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
