@@ -1,0 +1,8 @@
+{
+  "name": "Caribe",
+  "description": "Downloads videos from youtube as mp3",
+  "repository": "https://github.com/pedrofracassi/caribe",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku", "youtube"],
+  "image": "heroku/nodejs"
+}
