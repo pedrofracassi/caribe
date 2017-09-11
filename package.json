@@ -1,0 +1,22 @@
+{
+  "name": "caribe",
+  "version": "1.0.0",
+  "description": "Downloads videos from youtube as mp3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrofracassi/caribe.git"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "author": "Pedro Fracassi (pedrofracassi.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedrofracassi/caribe/issues"
+  },
+  "homepage": "https://github.com/pedrofracassi/caribe#readme"
+}
