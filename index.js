@@ -9,6 +9,12 @@ const sanitize = require("sanitize-filename");
 const staticPath = path.join(__dirname, '/public');
 const port = process.env.PORT || 8080;
 
+var mp3_dir = './mp3';
+var mp4_dir = './mp4';
+
+if (!fs.existsSync(mp3_dir)) fs.mkdirSync(mp3_dir);
+if (!fs.existsSync(mp4_dir)) fs.mkdirSync(mp4_dir);
+
 const server = express().use(express.static(staticPath)).listen(port, function() {
   console.log('Listening on port ' + port);
 });
