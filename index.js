@@ -3,7 +3,8 @@ const express = require('express');
 const WebSocket = require('ws');
 const fs = require('fs');
 const youtubedl = require('youtube-dl');
-var ffmpeg = require('ffmpeg');
+const ffmpeg = require('ffmpeg');
+const sanitize = require("sanitize-filename");
 
 const app = express();
 const wss = new WebSocket.Server({ port: 9090 });
@@ -20,14 +21,14 @@ wss.on('connection', function connection(ws) {
         console.log('Download started');
         console.log('filename: ' + info._filename);
         console.log('size: ' + info.size);
-        video.pipe(fs.createWriteStream(__dirname + '/public/mp4/' + parseFileName(info.fulltitle + '-' + info.display_id) + '.mp4'));
+        video.pipe(fs.createWriteStream(__dirname + '/public/mp4/' + parseFileName(info.display_id + '.mp4')));
       });
 
       // Will be called when the download ends (duh)
       video.on('end', function complete() {
         console.log('Download finished!');
         try {
-          var parsedFileName = video.__info__._filename;
+          var parsedFileName = parseFileName(video.__info__.display_id + '.mp4');
           console.log('Filename: ' + parsedFileName);
           var process = new ffmpeg('public/mp4/' + parsedFileName);
           process.then(function (newvideo) {
@@ -69,7 +70,7 @@ wss.on('connection', function connection(ws) {
 });
 
 function parseFileName(name) {
-  return name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+  return sanitize(name.split(' ').join('_').split('&').join('_'));
 }
 
 var staticPath = path.join(__dirname, '/public');

@@ -36,9 +36,10 @@ socket.onmessage = function (event) {
   var message = JSON.parse(event.data);
   resetUI();
   if (message.type == 'conversionFinished') {
-    $('#div-downloaded').append(`<a href="${message.downloadUrl}" download> ${message.videoName} </a>`);
+    $('#div-downloaded').append(`<a href="${message.downloadUrl}" download="${message.videoName + '.mp3'}"> ${message.videoName} </a>`);
   } else if (message.type == 'error') {
     resetUI();
+    console.log(message.message)
     alert(message.message);
   } else {
     resetUI();

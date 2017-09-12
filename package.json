@@ -23,6 +23,7 @@
     "express": "^4.15.4",
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
+    "sanitize-filename": "^1.6.1",
     "ws": "^3.1.0",
     "youtube-dl": "^1.11.1"
   }
