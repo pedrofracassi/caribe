@@ -7,17 +7,19 @@
 </head>
 <body>
   <div class="container">
-    <div class="jumbotron">
-      <h1 class="display-3" id="title">Caribe</h1>
-      <div class="alert alert-danger" id="div-notyoutube" role="alert" style="display: none;">
-        Essa URL não parece ser do youtube. Se você acha que isso é um erro, por favor, <a class="alert-link" href="https://github.com/pedrofracassi/caribe/issues/new">abra uma issue no GitHub</a>.
-      </div>
-      <div class="input-group">
-        <input type="text" class="form-control" id="textbox-url" placeholder="Link do vídeo">
-        <span class="input-group-btn">
-          <button class="btn btn-info" id="btn-start" onclick="startDownload()" type="button">Piratear</button>
-        </span>
-      </div>
+    <h1 class="display-3" id="title">Caribe</h1>
+    <div class="alert alert-danger" id="div-notyoutube" role="alert" style="display: none;">
+      Essa URL não parece ser do youtube. Se você acha que isso é um erro, por favor, <a class="alert-link" href="https://github.com/pedrofracassi/caribe/issues/new">abra uma issue no GitHub</a>.
+    </div>
+    <!-- <a href="mp3/RickRoll'D-oHg5SJYRHA0.mp3" download> Download link </a> -->
+    <div class="input-group">
+      <input type="text" class="form-control" id="textbox-url" placeholder="https://www.youtube.com/watch?v=oHg5SJYRHA0">
+      <span class="input-group-btn">
+        <button class="btn btn-info" id="btn-start" onclick="startDownload()" type="button"><i class="fa fa-download"></i> Piratear</button>
+      </span>
+    </div>
+    <div id="div-downloaded">
+      
     </div>
   </div>
   <script src="script.js"></script>

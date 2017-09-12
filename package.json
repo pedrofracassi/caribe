@@ -21,6 +21,9 @@
   "homepage": "https://github.com/pedrofracassi/caribe#readme",
   "dependencies": {
     "express": "^4.15.4",
-    "ws": "^3.1.0"
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "ws": "^3.1.0",
+    "youtube-dl": "^1.11.1"
   }
 }
