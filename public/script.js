@@ -1,4 +1,4 @@
-var socket = new WebSocket("ws://localhost:9090/");
+var socket = new WebSocket(`ws://${window.location.host}/`);
 var music = new Audio('pirates.mp3');
 
 function startDownload() {

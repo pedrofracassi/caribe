@@ -6,8 +6,14 @@ const youtubedl = require('youtube-dl');
 const ffmpeg = require('ffmpeg');
 const sanitize = require("sanitize-filename");
 
-const app = express();
-const wss = new WebSocket.Server({ port: 9090 });
+const staticPath = path.join(__dirname, '/public');
+const port = process.env.PORT || 8080;
+
+const server = express().use(express.static(staticPath)).listen(port, function() {
+  console.log('Listening on port ' + port);
+});
+
+const wss = new WebSocket.Server({ server });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
@@ -72,12 +78,3 @@ wss.on('connection', function connection(ws) {
 function parseFileName(name) {
   return sanitize(name.split(' ').join('_').split('&').join('_'));
 }
-
-var staticPath = path.join(__dirname, '/public');
-var port = process.env.PORT || 8080;
-
-app.use(express.static(staticPath));
-
-app.listen(port, function() {
-  console.log('Listening on port ' + port);
-});
