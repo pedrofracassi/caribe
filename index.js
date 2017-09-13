@@ -9,8 +9,8 @@ const sanitize = require("sanitize-filename");
 const staticPath = path.join(__dirname, '/public');
 const port = process.env.PORT || 8080;
 
-var mp3_dir = './mp3';
-var mp4_dir = './mp4';
+var mp3_dir = './public/mp3';
+var mp4_dir = './public/mp4';
 
 if (!fs.existsSync(mp3_dir)) fs.mkdirSync(mp3_dir);
 if (!fs.existsSync(mp4_dir)) fs.mkdirSync(mp4_dir);
@@ -31,7 +31,7 @@ wss.on('connection', function connection(ws) {
       video.on('info', function(info) {
         video.__info__ = info; // Yes, I'm injecting stuff into the video object. The famous Brazilian Gambiarra
         console.log('Download started');
-        console.log('filename: ' + info._filename);
+        console.log('filename: ' + info.display_id);
         console.log('size: ' + info.size);
         video.pipe(fs.createWriteStream(__dirname + '/public/mp4/' + parseFileName(info.display_id + '.mp4')));
       });
