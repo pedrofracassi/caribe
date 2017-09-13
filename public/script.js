@@ -1,4 +1,7 @@
-var socket = new WebSocket(`ws://${window.location.host}/`);
+var socketprot = 'ws'
+if (window.location.protocol == 'https:') socketprot = 'wss';
+
+var socket = new WebSocket(`${socketprot}://${window.location.host}/`);
 var music = new Audio('pirates.mp3');
 
 function startDownload() {
